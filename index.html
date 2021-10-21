@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>JavaScript Practice</title>
+
+<style type="text/css">
+.demo{
+ text-align: center;
+ background-color: aqua;
+ border-color: black;
+}
+
+#qty{
+ text-align: center;
+ box-sizing: 25px;
+}
+
+</style>
+</head>
+<body>
+
+<h3 style="text-align: center;">JavaScript practice</h3>
+<button onclick="GoForward()">Go Next Page</button>
+
+
+<div class="demo">
+
+<label>Quantity</label>
+<input type="number" min="0" id="qty" value="0"><br><br>
+<button onclick="productQuntityadd()">Add Product Quantity</button>
+<input type="hidden" id="price" value="250"><br><br>
+
+<label>Product Name</label>
+<input type="text"  id="product">
+<button onclick="addProduct()">Add</button><br><br>
+<br><br><label> Product Name:<p id="pname"></p></label>
+
+
+
+<br><br><label>Total Product Quantity:<p id="amount"></p></label>
+<button onclick="productMultiple()">Calculate total product price</button> 
+<br><br><label>Total Product price:<p id="Total"></p></label>
+
+<button id="getting" onclick="gettingmsg()"> Compare</button>
+<button onclick="RemoveQuantity()">Remove All</button>  
+<button onclick="goOrderPage()">See All Transction</button>
+
+</div>
+
+
+
+
+
+<script type="text/javascript">
+function addProduct(){
+ var Name=document.getElementById("product").value;
+ document.getElementById("pname").innerHTML=Name;
+ 
+
+}
+
+function productQuntityadd(){
+var element = document.getElementById("qty").value;
+document.getElementById("amount").innerHTML=element;
+}
+
+function productMultiple(){
+	var x = document.getElementById("qty").value;
+	var y = document.getElementById("price").value;
+	var mul = x * y;
+	document.getElementById("Total").innerHTML=mul;
+}
+
+function RemoveQuantity(){
+document.getElementById("qty").remove();
+document.getElementById("Total").remove();
+document.getElementById("amount").remove();
+document.getElementById("pname").remove();
+
+}
+
+
+
+
+function gettingmsg(mul){
+var msg = (mul<2)?"okay":"not okay";
+document.getElementById("getting").innerHTML=msg;
+}
+
+//setTimeout(function{alert("function execute");},3000)
+
+
+function goOrderPage(){
+window.location.assign("Details.html");
+}
+
+
+function GoForward(){
+window.history.forward();
+}
+
+</script>
+</body>
+</html>

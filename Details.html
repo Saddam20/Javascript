@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Details Page</title>
+
+
+
+<style type="text/css">
+
+#datatable{
+  width: 100%;
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 15px;
+  text-align: left;
+  border-spacing: 5px;
+  background-color: dimgray;
+  color: white;
+
+}
+
+input[type=text]{
+	width: 50%;
+	margin: 5px;
+}
+
+.heading{
+ 
+ background-color: yellow;
+ padding: 10px;
+ color: black;
+ margin: 2px;
+ border-spacing: 5px;
+ border-radius: 2px solid black;
+}
+</style>
+</head>
+<body>
+
+<button onclick="GoBack()">GoBack</button>
+<caption style="text-align: center;">Here you show all tranction:</caption><br>
+<input type="text" name="" id="search" value="" placeholder="search by name" onkeyup="searchFun()"><br>
+<table id="datatable">
+<tr class="heading">
+	<th>Name</th>
+	<th>product name</th>
+	<th>Quantity</th>
+	<th>price</th>
+</tr>
+<tr>
+<td>saddam</td>
+<td>alu potol</td>
+<td>123</td>
+<td>250tk</td>
+</tr>
+<tr>
+<td>Hossain</td>
+<td>alu potol</td>
+<td>123</td>
+<td>250tk</td>
+</tr>
+<tr>
+<td>Lepon</td>
+<td>alu potol</td>
+<td>123</td>
+<td>250tk</td>
+</tr>
+<tr>
+<td>Lepon</td>
+<td>alu potol</td>
+<td>123</td>
+<td>250tk</td>
+</tr><tr>
+<td>Robul</td>
+<td>alu potol</td>
+<td>123</td>
+<td>250tk</td>
+</tr><tr>
+<td>kajal</td>
+<td>alu potol</td>
+<td>123</td>
+<td>250tk</td>
+</tr>
+</table>
+
+
+
+
+
+<script type="text/javascript">
+function GoBack(){
+window.history.back();
+}
+
+const searchFun = () =>{
+let filter = document.getElementById('search').value.toUpperCase();
+let mytable = document.getElementById('datatable');
+let tr = mytable.getElementsByTagName('tr');
+for (var i = 0; i < tr.length; i++) {
+let td = tr[i].getElementsByTagName('td')[0];
+if (td) {
+let textvalue = td.textContent || td.innerHTML;
+if (textvalue.toUpperCase().indexOf(filter)> -1) {
+tr[i].style.display = "";
+}else{ tr[i].style.display = "none";
+}}
+}}
+
+
+</script>
+</body>
+</html>
